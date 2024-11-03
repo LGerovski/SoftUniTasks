@@ -1,14 +1,19 @@
 package SoftUni;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Dispatcher {
     public String name;
-    List<NameChangeListener> NameChangeListeners;
+    List<NameChangeListener> nameChangeListeners = new ArrayList<NameChangeListener>();
 
-    public void addNameChangeListener (){};
+    public void addNameChangeListener (NameChangeListener addName){
+        nameChangeListeners.add(addName);
+    };
 
-    public void removeNameChangeListener(){};
+    public void removeNameChangeListener(NameChangeListener removeName){
+        nameChangeListeners.remove(removeName);
+    };
 
     public void fireNameChangeEvent(){};
 }
