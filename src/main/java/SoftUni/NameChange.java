@@ -1,8 +1,11 @@
 package SoftUni;
 
 public class NameChange {
-    public String changed_name;
+    private String changed_name;
     NameChange (String name){
         changed_name = name;
+    }
+    public String getName (){
+        return changed_name;
     }
 }
