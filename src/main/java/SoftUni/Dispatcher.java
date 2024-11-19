@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dispatcher {
-    public String name;
-    List<NameChangeListener> nameChangeListeners = new ArrayList<NameChangeListener>();
+    public String value;
+    List<EventListener> listeners = new ArrayList<>();
 
-    public void addNameChangeListener (NameChangeListener Name){
-        nameChangeListeners.add(Name);
+    public void addEventListener(EventListener name){
+        listeners.add(name);
     };
 
-    public void removeNameChangeListener(NameChangeListener Name){nameChangeListeners.remove(Name);
+    public void removeEventListener(EventListener name){
+        listeners.remove(name);
     };
 
-    public void fireNameChangeEvent(){
-        for (NameChangeListener event : nameChangeListeners) {
-            //event.handleChangedName();
-            
-            System.out.printf("");
+    public void fireEvent(){
+        Event event = new Event(this, value);
+        for (EventListener listener : listeners) {
+            listener.handleEvent(event);
         }
     };
 }
